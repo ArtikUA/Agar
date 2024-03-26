@@ -4,12 +4,13 @@ body, html {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    background-color: transparent; /* Ensure background is transparent */
 }
 
 #gameCanvas {
     width: 100vw;
     height: 100vh;
-    background-color: #f0f0f0; /* Changed the background color back to bright gray for user feedback */
+    /* background-color: #D3D3D3; */ /* Updated background color for better contrast with the border */
 }
 
 /* Modal overlay styles */

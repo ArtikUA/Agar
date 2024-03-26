@@ -1,18 +1,18 @@
 # Agar Game
 
-Agar is an engaging and innovative online real-time ball chase game designed to provide a seamless multiplayer experience. Players navigate a dynamic environment, controlling a ball that grows by consuming smaller squares and other balls. With its web-based architecture, Agar offers easy access and real-time interaction for an unlimited number of concurrent players, emphasizing simplicity, fun, and competitive gameplay.
+Agar is an engaging online ball chase game that allows players to control a ball in real-time within a shared game space. Players navigate their balls to consume smaller squares and other balls to grow in size, all within a constrained environment that promotes competitive play. The game is built as a web application, ensuring easy access and immediate interaction among a potentially unlimited number of concurrent players.
 
 ## Overview
 
-Agar utilizes a scalable web application architecture, employing Node.js and the Express framework for the backend, and Vanilla JavaScript with Bootstrap for the frontend. The application leverages WebSockets for efficient real-time communication between the server and clients. This setup ensures a responsive and engaging user experience across various devices without the need for external databases, as all necessary information is maintained in memory.
+The game employs a scalable web application architecture, utilizing Node.js with the Express framework for the backend and Vanilla JavaScript with Bootstrap for the frontend. Real-time communication is facilitated through WebSockets, providing a smooth and responsive gameplay experience. The project is structured for modular development, with a clear separation of concerns between client-side and server-side logic.
 
 ## Features
 
-- **Dynamic Multiplayer Gameplay**: Real-time interaction with countless players worldwide.
-- **Growth Mechanics**: Increase your ball's size by consuming squares and smaller balls to dominate the game space.
-- **User Personalization**: Enter your name for a personalized gaming experience, visible on your ball.
-- **Constrained Game Space**: Navigate a limited area to increase the game's strategic depth.
-- **Modular Codebase**: A well-organized, maintainable codebase that simplifies future development and enhancements.
+- **Dynamic Multiplayer Gameplay**: Engage in real-time gameplay with players from around the globe.
+- **Growth Mechanics**: Grow your ball's size by consuming squares and competing balls.
+- **Personalized Experience**: Introduce yourself with a name for a personalized touch, displayed at the center of your ball.
+- **Constrained Game Space**: Play within a limited area that intensifies the game's strategic depth.
+- **Modular Codebase**: Facilitated future development and enhancements through well-organized code.
 
 ## Getting Started
 
@@ -26,7 +26,7 @@ Agar utilizes a scalable web application architecture, employing Node.js and the
 1. Clone the repository to your local machine.
 2. Navigate to the project directory and run `npm install` to install dependencies.
 3. Start the server with `node server.js`.
-4. Open `http://localhost:3000` in your web browser to start playing.
+4. Open `http://localhost:3000` in your web browser to begin playing.
 
 ### License
 
