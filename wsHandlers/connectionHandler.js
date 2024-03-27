@@ -38,6 +38,8 @@ function setupWebSocketConnection(wss) {
           console.log(`Updated connection: ${clientId} with name ${data.name} and game space dimensions width: ${gameSpaceWidth}, height: ${gameSpaceHeight}`);
 
           ws.send(JSON.stringify({ type: 'initialize', color, position, clientId, radius: initialBallSize / 2, name: data.name })); // Confirm initialization with name
+          // Send an additional message to confirm successful initialization
+          ws.send(JSON.stringify({ type: 'initSuccess', message: `Initialization successful for ${data.name}` }));
         } else {
           // Use the handleMessage function for processing incoming messages
           handleMessage(ws, message);
