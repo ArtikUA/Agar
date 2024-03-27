@@ -1,7 +1,6 @@
 import { drawBalls } from './drawBalls.js';
 import { drawSquares } from './drawSquares.js';
 import { drawGameBorder } from './drawGameBorder.js'; // Re-added import for drawGameBorder
-import { drawFloorGrid } from './drawFloorGrid.js'; // Importing the drawFloorGrid function
 
 /**
  * Clears the canvas and invokes functions to draw balls and squares.
@@ -27,9 +26,6 @@ export function drawGame(ctx, gameCanvas, balls, squares, player, scaleFactor) {
         // Calculate scale based on player's ball radius and the provided scaleFactor.
         const baseRadius = 15 * scaleFactor; // Adjusted base player radius for scale calculation
         const scale = baseRadius / player.radius;
-
-        // Draw the floor grid before drawing balls and squares
-        drawFloorGrid(ctx, gameCanvas, gameCanvas.width * scale, gameCanvas.height * scale, scaleFactor);
 
         ctx.save();
         ctx.translate(gameCanvas.width / 2, gameCanvas.height / 2); // Center the "camera" on the canvas

@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const nameInputForm = document.getElementById('nameInputForm');
     const nameInputModal = document.getElementById('nameInputModal');
     const playerNameInput = document.getElementById('playerName');
+    const submitButton = nameInputForm.querySelector('button[type="submit"]');
 
     // Ensure the modal is visible initially
     nameInputModal.style.display = 'flex'; // Assuming 'flex' is the correct display style based on the modal's CSS definition
@@ -42,7 +43,15 @@ document.addEventListener('DOMContentLoaded', function() {
         event.preventDefault(); // Prevent the form from causing a page reload
         const playerName = playerNameInput.value.trim();
         if (playerName) {
-            nameInputModal.style.display = 'none'; // Hide the modal once a valid name is submitted
+            submitButton.style.backgroundColor = 'green';
+            submitButton.textContent = '✔ Submitted';
+
+            setTimeout(() => {
+                submitButton.style.backgroundColor = ''; // Reset button background color
+                submitButton.textContent = 'Start Game'; // Reset button text
+            }, 500); // Short delay to show the button feedback before proceeding
+
+            nameInputModal.style.display = 'none'; // Hide the modal
 
             const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
             const wsURL = `${wsProtocol}//${window.location.host}`;
@@ -50,7 +59,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
             ws.onopen = function() {
                 console.log('WebSocket connection established.');
-                // Send the player's name and viewport dimensions to the server along with the type 'initialize'
                 ws.send(JSON.stringify({ type: 'initialize', name: playerName, width: window.innerWidth, height: window.innerHeight }));
                 console.log(`Sent initialization message with name: ${playerName} and viewport dimensions.`);
                 positionUpdateInterval = setInterval(() => {

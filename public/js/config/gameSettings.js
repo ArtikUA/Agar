@@ -1,3 +1,8 @@
+// Game settings for Agar app
+
+// Base radius for player's ball
+export const basePlayerRadius = 15;
+
 // Game space dimensions are now dynamically set by the client, so these are placeholders
 // These initial values are used as fallbacks
 export const gameSpace = { width: 800, height: 600 };
@@ -20,7 +25,3 @@ export const gameScaleFactor = 3; // This scales the game elements to appear 3 t
 
 // Gain from eating a square, reduced 3 times as per user feedback
 export const squareGain = 1 / 3; // Each square eaten increases the ball's radius by this fraction
-
-// Grid styling properties
-export const gridLineColor = '#ADD8E6'; // Light blue hex code for the grid lines
-export const gridLineThickness = 0.5; // Thin value for grid line thickness
