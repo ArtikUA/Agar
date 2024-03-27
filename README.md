@@ -1,25 +1,25 @@
 # Agar Game
 
-Agar is an immersive online multiplayer game where players navigate a dynamic environment as a ball, aiming to grow larger by consuming squares and other players. This project delivers an engaging real-time gaming experience accessible directly from a web browser, fostering a competitive yet fun atmosphere for players worldwide.
+Agar is an engaging online multiplayer game that challenges players to navigate a colorful ball in a dynamic environment, growing in size by consuming smaller squares and avoiding larger opponents. It's designed to offer a simple yet captivating gameplay experience, suitable for players seeking quick and accessible online entertainment.
 
 ## Overview
 
-The game leverages a web application architecture, utilizing Node.js with Express for server-side operations and Vanilla JavaScript with Bootstrap for the frontend. Real-time communication is achieved through WebSockets, ensuring fluid gameplay and immediate response to user actions. The project is meticulously organized, dividing the frontend and backend logic and including utilities and configurations in separate files for ease of maintenance and scalability.
+The game leverages a web-based architecture, utilizing Node.js and Express for the backend, and Vanilla JavaScript with Bootstrap for the frontend. Real-time interactions are achieved through WebSockets, providing a seamless and responsive user experience. The project is structured into modular components, including separate logic for game mechanics, client-side rendering, and WebSocket handling, ensuring maintainability and scalability.
 
 ## Features
 
-- **Dynamic Multiplayer Gameplay**: Engage with players globally in real-time.
-- **Real-Time Interaction**: Smooth and responsive gameplay experience.
-- **Customizable Player Experience**: Players can personalize their game by entering their names, which are displayed on their balls.
-- **Progressive Gameplay Difficulty**: The game becomes more challenging as your ball grows, navigating through the game space and competing with other players.
-- **Sleek, Minimalist Design**: Focuses on gameplay with a simple and intuitive user interface, enhancing the player's experience.
+- **Dynamic Multiplayer Gameplay**: Join players worldwide in a shared space, navigating and growing your ball.
+- **Real-Time Interaction**: Experience smooth gameplay with real-time updates and interactions.
+- **Customizable Appearances**: Personalize your gameplay with randomly assigned ball colors and the ability to display a chosen name.
+- **Engaging Objectives**: Grow your ball by consuming squares and other players' balls, with the challenge increasing as you grow.
+- **Modular Design**: Benefit from a clean, well-organized codebase that simplifies future enhancements and maintenance.
 
 ## Getting started
 
 ### Requirements
 
 - Node.js installed on your machine.
-- A modern web browser.
+- A modern web browser with support for WebSockets.
 
 ### Quickstart
 
