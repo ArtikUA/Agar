@@ -1,16 +1,16 @@
 # Agar Game
 
-Agar is an engaging online multiplayer game where players navigate a ball to grow by consuming squares and other players' balls. It features real-time interaction and dynamic gameplay, offering an accessible yet competitive environment for casual and seasoned gamers alike.
+Agar is an engaging online multiplayer game where players control balls, navigate a dynamic arena to consume squares, and compete to grow by absorbing smaller balls. It provides a simple, fun, and real-time online experience that supports an unlimited number of concurrent users. The game emphasizes ease of access, casual play, and dynamic interaction without the need for personalization or progression systems.
 
 ## Overview
 
-Agar utilizes a web-based architecture, employing Node.js and Express for the backend, with Vanilla JavaScript and Bootstrap for the frontend. Real-time communication is achieved through WebSockets, providing seamless gameplay. The project is structured into various modules for game mechanics, client-side rendering, and WebSocket management, ensuring maintainability and scalability.
+The Agar game is developed as a web application utilizing Node.js with Express for the backend, Vanilla JavaScript with Bootstrap for the frontend, and WebSockets for real-time communication between client and server. Its modular architecture divides the game logic, client-side rendering, and WebSocket management into separate modules for maintainability and scalability. Notably, the game features a dynamic game space where users can see their names displayed on their balls, enhancing the multiplayer experience.
 
 ## Features
 
 - **Dynamic Multiplayer Gameplay**: Navigate and grow your ball in a shared space with other players.
-- **Real-Time Interaction**: Experience smooth gameplay with real-time updates.
-- **Customizable Appearances**: Display your chosen name on your ball, which is randomly colored for easy identification.
+- **Real-Time Interaction**: Experience smooth gameplay with real-time updates and interactions.
+- **Customizable Appearances**: Initially, balls are randomly colored, and players can display their chosen names on their balls.
 - **Engaging Objectives**: Grow by consuming squares and other balls, with gameplay becoming more challenging as you grow.
 
 ## Getting started

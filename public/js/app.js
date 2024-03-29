@@ -1,9 +1,10 @@
-import { balls, squares } from './gameClient.js';
+import { balls, squares, sendRestartMessage } from './gameClient.js';
 import { updateGameStateFromMessage } from './gameState/updateGameState.js';
 import { drawGame } from './gameElements/drawGame.js';
 
 let clientId = null; // Store the clientId of the current connection at the top to ensure it's initialized before use
 let scaleFactor = 1; // Store the scale factor for the game
+let ws = null; // Store the WebSocket connection globally
 
 document.addEventListener('DOMContentLoaded', function() {
     const gameCanvas = document.getElementById('gameCanvas');
@@ -54,8 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
             nameInputModal.style.display = 'none'; // Hide the modal
 
             const wsProtocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-            const wsURL = `${wsProtocol}//${window.location.host}`;
-            const ws = new WebSocket(wsURL);
+            ws = new WebSocket(`${wsProtocol}//${window.location.host}`);
 
             ws.onopen = function() {
                 console.log('WebSocket connection established.');
@@ -123,6 +123,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const offsetY = (event.clientY - rect.top) * scaleY - window.innerHeight / 2;
             targetPosition.x = playerBall.x + offsetX / scale;
             targetPosition.y = playerBall.y + offsetY / scale;
+        }
+    });
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'r' || event.key === 'R') {
+            if (ws && clientId) {
+                sendRestartMessage(ws);
+            }
         }
     });
 });

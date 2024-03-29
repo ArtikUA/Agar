@@ -38,6 +38,21 @@ function setupWebSocketConnection(wss) {
           console.log(`Updated connection: ${clientId} with name ${data.name} and game space dimensions width: ${gameSpaceWidth}, height: ${gameSpaceHeight}`);
 
           ws.send(JSON.stringify({ type: 'initialize', color, position, clientId, radius: initialBallSize / 2, name: data.name })); // Confirm initialization with name
+        } else if (data.type === 'restart') {
+          const clientId = ws.clientId;
+          if (clientId && global.clients[clientId]) {
+            const newPosition = getRandomPosition();
+            global.clients[clientId].position = newPosition;
+            global.clients[clientId].radius = initialBallSize / 2; // Assuming the radius is half the diameter
+            
+            // Inform the client about the reset
+            ws.send(JSON.stringify({
+              type: 'reset',
+              position: newPosition,
+              radius: initialBallSize / 2
+            }));
+            console.log(`Client ${clientId} reset to new position and size.`);
+          }
         } else {
           // Use the handleMessage function for processing incoming messages
           handleMessage(ws, message);

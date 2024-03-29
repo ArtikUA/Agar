@@ -1,5 +1,6 @@
 const { generateRandomSquare } = require('./generateRandomSquare');
-const { squareSize, squareGain } = require('../../config/gameSettings');
+const { squareSize, squareGain, initialBallSize } = require('../../config/gameSettings');
+const { getRandomPosition } = require('./getRandomPosition');
 
 /**
  * Checks and handles collisions between balls and squares, and between balls themselves.
@@ -29,16 +30,28 @@ function checkCollisions(clients, squares) {
         const otherClient = clients[otherClientId];
         const distance = Math.sqrt(Math.pow(client.position.x - otherClient.position.x, 2) + Math.pow(client.position.y - otherClient.position.y, 2));
         if (distance < client.radius + otherClient.radius && client.radius >= otherClient.radius * 1.1) {
-          client.radius += squareGain; // Adjusted to use squareGain for the increase
-          delete clients[otherClientId]; 
+          otherClient.position = getRandomPosition();
+          otherClient.radius = initialBallSize; // Resetting radius to the initial size defined in gameSettings.js
 
-          const removeMessage = JSON.stringify({ type: 'remove', clientId: otherClientId });
+          const updateMessage = JSON.stringify({
+            type: 'update',
+            positions: {
+              [otherClientId]: {
+                position: otherClient.position,
+                radius: otherClient.radius,
+                color: otherClient.color,
+                name: otherClient.name,
+              },
+            },
+          });
+
+          // Broadcast the update to all clients
           Object.values(clients).forEach(client => {
             try {
-              client.ws.send(removeMessage);
-              console.log(`Sent remove message for client ${otherClientId}`);
+              client.ws.send(updateMessage);
+              console.log(`Sent update message for client ${otherClientId}`);
             } catch (error) {
-              console.error(`Error sending remove message for client ${otherClientId}:`, error.message, error.stack);
+              console.error(`Error sending update message for client ${otherClientId}:`, error.message, error.stack);
             }
           });
         }

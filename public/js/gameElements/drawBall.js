@@ -14,9 +14,9 @@ export function drawBall(ctx, x, y, color, radius, name) {
         ctx.arc(x, y, radius, 0, Math.PI * 2, true);
         ctx.fill();
 
-        // Adjustments for name display
+        // Adjustments for name display based on the ball's radius
         ctx.fillStyle = 'white'; // Ensuring visibility against potentially dark ball colors
-        let fontSize = Math.max(radius / 2, 14); // Enhanced dynamic font size calculation
+        let fontSize = Math.max(radius / 3, 10); // Dynamic font size calculation based on ball radius
         ctx.font = `bold ${fontSize}px Arial`;
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';

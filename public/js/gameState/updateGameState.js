@@ -19,7 +19,10 @@ export function updateGameStateFromMessage(data, balls, squares) {
             }
             balls[clientId].x = data.positions[clientId].position.x;
             balls[clientId].y = data.positions[clientId].position.y;
-            balls[clientId].radius = data.positions[clientId].radius;
+            // Check if the radius property is present, and if so, update it
+            if ('radius' in data.positions[clientId]) {
+                balls[clientId].radius = data.positions[clientId].radius;
+            }
             // Update color and name for each ball
             if (data.positions[clientId].color) {
                 balls[clientId].color = data.positions[clientId].color;
