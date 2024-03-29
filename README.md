@@ -1,17 +1,17 @@
 # Agar Game
 
-Agar is an immersive online multiplayer game where players navigate a dynamic arena as balls, aiming to grow in size by consuming smaller balls and various colored squares. It offers a real-time, interactive gaming experience that supports an unlimited number of concurrent users without the need for personalization or progression systems, focusing on simplicity, fun, and direct competition.
+Agar is an engaging online multiplayer ball chase game that offers a dynamic and interactive gameplay experience. Players control their balls, navigating through a space filled with colorful squares and other players, aiming to grow by consuming smaller entities. The game is designed to support an unlimited number of concurrent users, emphasizing fun, competition, and direct interaction without the need for user identification or progress tracking.
 
 ## Overview
 
-The Agar game leverages a web application architecture, utilizing Node.js with the Express framework for the backend, and Vanilla JavaScript with Bootstrap for the frontend. Real-time communication is achieved through WebSockets, allowing for seamless and immediate gameplay. The project is structured into several key components, including server logic, WebSocket handlers, client-side rendering, and utility functions, ensuring a modular and maintainable codebase.
+The game is developed as a web application using Node.js with the Express framework for the backend, and Vanilla JavaScript with Bootstrap for the frontend. WebSockets facilitate real-time communication between the client and server. The application's structure is modular, featuring separate logic for server handling, WebSocket management, game mechanics, and client-side rendering.
 
 ## Features
 
-- **Dynamic Multiplayer Gameplay**: Engage in an ever-changing arena with unlimited players.
-- **Real-Time Interaction**: Experience immediate gameplay changes with real-time updates.
-- **Customization**: Display your chosen name on your ball for a personalized touch.
-- **Growth Mechanics**: Grow by consuming squares and other players, with the challenge increasing as your size does.
+- **Dynamic Multiplayer Gameplay**: Engage with countless other players in real-time.
+- **Real-Time Interaction**: Immediate responses to user actions ensure a fluid gaming experience.
+- **Growth Mechanics**: Players grow by consuming squares and other players, with the game's challenge escalating accordingly.
+- **Customization**: Players can personalize their balls by displaying their chosen names.
 
 ## Getting started
 

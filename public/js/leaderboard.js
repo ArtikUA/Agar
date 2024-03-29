@@ -5,20 +5,30 @@ export function updateLeaderboard(players) {
         return;
     }
 
-    // Clear existing content
-    leaderboardDiv.innerHTML = '';
+    // Create a fragment to minimize reflows
+    const fragment = document.createDocumentFragment();
 
-    // Create and append player entries with rounded size values
     players.forEach(player => {
         const playerDiv = document.createElement('div');
         playerDiv.className = 'leaderboard-entry';
-        // Round the player's size to the nearest integer before displaying
         const roundedSize = Math.round(player.size);
         playerDiv.textContent = `${player.name}: ${roundedSize}`;
-        leaderboardDiv.appendChild(playerDiv);
+        
+        // Add highlight effect for new or updated entries
+        if (!leaderboardDiv.querySelector(`[data-id="${player.name}"]`)) {
+            playerDiv.classList.add('highlight');
+            setTimeout(() => playerDiv.classList.remove('highlight'), 800); // Remove highlight after animation
+        }
+        
+        playerDiv.setAttribute('data-id', player.name); // Track entries by name
+        fragment.appendChild(playerDiv);
     });
 
-    console.log('Leaderboard updated with rounded size values.');
+    // Clear and update leaderboard
+    leaderboardDiv.innerHTML = '';
+    leaderboardDiv.appendChild(fragment);
+
+    console.log('Leaderboard updated with dynamic effects.');
 }
 
 export function drawLeaderboard() {
