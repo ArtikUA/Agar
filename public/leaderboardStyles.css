@@ -1,0 +1,35 @@
+.leaderboard {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    max-height: 300px;
+    overflow-y: auto;
+    z-index: 10;
+    font-size: 16px; /* Increased font size for better readability */
+}
+
+.leaderboard-entry {
+    margin-bottom: 5px;
+    color: #333; /* Ensures good contrast with the background */
+    font-weight: 500; /* Slightly bold for better visibility */
+    padding: 5px 0; /* Added padding for better spacing */
+    border-bottom: 1px solid #eee; /* Subtle separator for each entry */
+    display: flex;
+    justify-content: space-between; /* Space out name and size */
+}
+
+/* Additional styling for the last leaderboard entry to remove the bottom border */
+.leaderboard-entry:last-child {
+    border-bottom: none;
+}
+
+/* Highlight the current player's row if possible */
+.leaderboard-entry.current-player {
+    font-weight: bold;
+    color: #d9534f; /* A color that stands out */
+    background-color: #f9f9f9; /* Slight background highlight for emphasis */
+}

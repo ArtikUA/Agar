@@ -1,6 +1,7 @@
 import { balls, squares, sendRestartMessage } from './gameClient.js';
 import { updateGameStateFromMessage } from './gameState/updateGameState.js';
 import { drawGame } from './gameElements/drawGame.js';
+import { drawLeaderboard, updateLeaderboard } from './leaderboard.js'; // Importing leaderboard functions
 
 let clientId = null; // Store the clientId of the current connection at the top to ensure it's initialized before use
 let scaleFactor = 1; // Store the scale factor for the game
@@ -28,6 +29,8 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     resizeCanvas(); // Call resizeCanvas to set initial size
     window.addEventListener('resize', resizeCanvas); // Adjust canvas size on window resize
+
+    drawLeaderboard(); // Initialize the leaderboard
 
     let targetPosition = { x: 0, y: 0 }; // Store the target position for the ball
     let positionUpdateInterval = null; // Store the interval ID for position updates
@@ -91,6 +94,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Update the scale factor from the server
                     if (data.scale) {
                         scaleFactor = data.scale;
+                    }
+                    // Update leaderboard if data contains leaderboard information
+                    if (data.leaderboard) {
+                        updateLeaderboard(data.leaderboard);
                     }
                 }
                 if (balls[clientId]) { // Ensure the player's ball exists before drawing

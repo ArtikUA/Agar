@@ -15,6 +15,16 @@ function broadcastPositions(clients, squares) {
       name: clients[clientId].name // Include the name property when broadcasting positions
     };
   });
+
+  // Create an array for the leaderboard
+  const leaderboard = Object.values(clients)
+    .map(client => ({
+      name: client.name,
+      size: client.radius // Using radius to represent size
+    }))
+    .sort((a, b) => b.size - a.size) // Sort by size in descending order
+    .slice(0, 10); // Limit to top 10 players
+
   const message = JSON.stringify({ 
     type: 'update', 
     positions, 
@@ -24,12 +34,14 @@ function broadcastPositions(clients, squares) {
       color: square.color,
       size: squareSize
     })),
-    scale: gameScaleFactor // Include the new scale factor here
+    scale: gameScaleFactor, // Include the new scale factor here
+    leaderboard // Add the leaderboard to the message
   });
+
   Object.values(clients).forEach(client => {
     try {
       client.ws.send(message);
-      console.log(`Broadcasted positions, squares, and scale factor to client.`);
+      console.log(`Broadcasted positions, squares, scale factor, and leaderboard to client.`);
     } catch (error) {
       console.error(`Error broadcasting positions to client: ${error.message}`, error.stack);
     }
